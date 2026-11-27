@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! `zfs-toolbox-helper`: performs the privileged operations of ZFS Toolbox.
 //!
 //! It is started by the application through `pkexec`, which asks polkit to

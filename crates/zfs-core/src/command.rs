@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Builders for the `zfs` and `zpool` command lines used by the application.
 //!
 //! Commands are always built as an argument vector and executed without a

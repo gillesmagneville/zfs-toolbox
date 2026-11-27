@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Human-readable sizes.
 
 /// Formats a byte count with binary units, like `zfs list` does

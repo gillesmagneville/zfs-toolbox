@@ -52,7 +52,7 @@ assets = [
 [package.metadata.generate-rpm]
 name = "zfs-toolbox"
 summary = "Manage OpenZFS pools, datasets, snapshots and replication"
-license = "GPL-3.0-or-later"
+license = "GPL-3.0-only"
 assets = [
     { source = "target/release/zfs-toolbox", dest = "/usr/bin/zfs-toolbox", mode = "755" },
     { source = "target/release/zfs-toolbox-helper", dest = "/usr/libexec/zfs-toolbox/zfs-toolbox-helper", mode = "755" },

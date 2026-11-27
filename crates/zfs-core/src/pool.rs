@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Storage pools, as listed by `zpool list -H -p`.
 
 use crate::command::{self, POOL_COLUMNS};

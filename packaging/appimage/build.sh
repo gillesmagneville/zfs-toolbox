@@ -1,5 +1,5 @@
 #!/bin/sh
-# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-License-Identifier: GPL-3.0-only
 #
 # Builds ZFS Toolbox as an AppImage with linuxdeploy and its GTK plugin.
 # Run it on the oldest supported system (Ubuntu 22.04) so that the result

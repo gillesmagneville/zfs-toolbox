@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! ZFS Toolbox: a GTK4 desktop application to manage OpenZFS on Linux.
 
 mod config;
@@ -20,7 +20,7 @@ fn show_about(app: &adw::Application) {
             "Manage OpenZFS pools, datasets, snapshots and replication",
         ))
         .website(config::REPOSITORY)
-        .license_type(gtk::License::Gpl30)
+        .license_type(gtk::License::Gpl30Only)
         .authors(["Gilles Magneville"])
         .modal(true);
     if let Some(window) = app.active_window() {

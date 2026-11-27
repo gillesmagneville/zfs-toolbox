@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Main window: a sidebar of sections and the page of the selected section.
 
 use adw::prelude::*;

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Validation of pool, dataset and snapshot names.
 //!
 //! These checks follow the OpenZFS naming rules and are deliberately strict:

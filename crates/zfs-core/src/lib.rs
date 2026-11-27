@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Core logic of ZFS Toolbox, independent from the user interface.
 //!
 //! This crate talks to OpenZFS only through its command-line tools

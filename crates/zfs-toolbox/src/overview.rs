@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! The "Overview" page: OpenZFS version, imported pools and a check of the
 //! administrator access.
 

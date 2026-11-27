@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Protocol between the application and its privileged helper.
 //!
 //! The application runs as the logged-in user. Operations that change the

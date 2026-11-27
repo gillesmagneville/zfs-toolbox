@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Execution of commands, behind a trait so that parsers can be tested
 //! with recorded output and the interface can be run without ZFS.
 

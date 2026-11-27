@@ -102,4 +102,4 @@ file to the package lists in `crates/zfs-toolbox/Cargo.toml`.
 ## License
 
 ZFS Toolbox is free software, released under the
-[GNU General Public License v3.0 or later](LICENSE).
+[GNU General Public License v3.0 only](LICENSE).

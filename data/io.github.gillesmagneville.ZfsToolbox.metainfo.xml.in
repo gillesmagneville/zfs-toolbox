@@ -3,7 +3,7 @@
 <component type="desktop-application">
   <id>io.github.gillesmagneville.ZfsToolbox</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0-or-later</project_license>
+  <project_license>GPL-3.0-only</project_license>
   <name translatable="no">ZFS Toolbox</name>
   <summary>Manage OpenZFS pools, datasets, snapshots and replication</summary>
   <description>

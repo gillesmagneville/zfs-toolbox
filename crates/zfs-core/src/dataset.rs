@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-only
 //! Filesystems and volumes, as listed by `zfs list -H -p`.
 
 use crate::command::{self, DATASET_COLUMNS};
