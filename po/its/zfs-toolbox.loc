@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- ITS rules shipped with the project, so that building translations does
+     not depend on the ITS files of the build machine's appstream/polkit. -->
+<locatingRules>
+  <locatingRule name="AppStream" pattern="*.metainfo.xml.in">
+    <documentRule localName="component" target="metainfo.its"/>
+  </locatingRule>
+  <locatingRule name="AppStream" pattern="*.metainfo.xml">
+    <documentRule localName="component" target="metainfo.its"/>
+  </locatingRule>
+  <locatingRule name="Polkit" pattern="*.policy.in">
+    <documentRule localName="policyconfig" target="polkit.its"/>
+  </locatingRule>
+  <locatingRule name="Polkit" pattern="*.policy">
+    <documentRule localName="policyconfig" target="polkit.its"/>
+  </locatingRule>
+</locatingRules>
