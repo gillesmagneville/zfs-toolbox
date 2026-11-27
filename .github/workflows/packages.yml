@@ -48,7 +48,8 @@ jobs:
     steps:
       - name: Install system dependencies
         run: |
-          dnf install -y epel-release dnf-plugins-core
+          # The base image has no bash, which the Rust actions need.
+          dnf install -y bash tar gzip xz findutils epel-release dnf-plugins-core
           dnf config-manager --set-enabled crb
           dnf install -y gcc git pkgconf-pkg-config gtk4-devel libadwaita-devel gettext
       - uses: actions/checkout@v4
