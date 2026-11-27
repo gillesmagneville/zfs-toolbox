@@ -1,0 +1,273 @@
+# French translation of ZFS Toolbox.
+# This file is distributed under the same license as the zfs-toolbox package.
+msgid ""
+msgstr ""
+"Project-Id-Version: zfs-toolbox\n"
+"Report-Msgid-Bugs-To: https://github.com/gillesmagneville/zfs-toolbox/issues\n"
+"POT-Creation-Date: 2026-11-27 22:38+0000\n"
+"PO-Revision-Date: 2026-11-27 22:38+0000\n"
+"Last-Translator: ZFS Toolbox contributors\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: crates/zfs-toolbox/src/helper_client.rs:33
+msgid "Authentication was cancelled."
+msgstr "Authentification annulée."
+
+#: crates/zfs-toolbox/src/helper_client.rs:34
+msgid "Administrator authentication failed."
+msgstr "L'authentification administrateur a échoué."
+
+#: crates/zfs-toolbox/src/helper_client.rs:36
+msgid "The administration helper is not installed ({})."
+msgstr "Le service d'administration n'est pas installé ({})."
+
+#: crates/zfs-toolbox/src/helper_client.rs:40
+msgid "The request was rejected."
+msgstr "La demande a été refusée."
+
+#: crates/zfs-toolbox/src/helper_client.rs:41
+msgid "The name is not valid."
+msgstr "Le nom n'est pas valide."
+
+#: crates/zfs-toolbox/src/helper_client.rs:42
+msgid "Administrator rights are required."
+msgstr "Les droits administrateur sont nécessaires."
+
+#: crates/zfs-toolbox/src/helper_client.rs:43
+msgid "OpenZFS is not installed."
+msgstr "OpenZFS n'est pas installé."
+
+#: crates/zfs-toolbox/src/helper_client.rs:44
+msgid "The ZFS command failed."
+msgstr "La commande ZFS a échoué."
+
+#: crates/zfs-toolbox/src/helper_client.rs:52
+msgid "Unexpected error: {}"
+msgstr "Erreur inattendue : {}"
+
+#: crates/zfs-toolbox/src/main.rs:20
+msgid "Manage OpenZFS pools, datasets, snapshots and replication"
+msgstr "Gérer les pools, datasets, snapshots et la réplication OpenZFS"
+
+#: crates/zfs-toolbox/src/overview.rs:44
+msgid "Online"
+msgstr "En ligne"
+
+#: crates/zfs-toolbox/src/overview.rs:45
+msgid "Degraded"
+msgstr "Dégradé"
+
+#: crates/zfs-toolbox/src/overview.rs:46
+msgid "Faulted"
+msgstr "En défaut"
+
+#: crates/zfs-toolbox/src/overview.rs:47
+msgid "Offline"
+msgstr "Hors ligne"
+
+#: crates/zfs-toolbox/src/overview.rs:48
+msgid "Unavailable"
+msgstr "Indisponible"
+
+#: crates/zfs-toolbox/src/overview.rs:49
+msgid "Removed"
+msgstr "Retiré"
+
+#: crates/zfs-toolbox/src/overview.rs:50
+msgid "Suspended"
+msgstr "Suspendu"
+
+#: crates/zfs-toolbox/src/overview.rs:87
+msgid "The status check crashed."
+msgstr "La vérification de l'état s'est arrêtée brutalement."
+
+#: crates/zfs-toolbox/src/overview.rs:96
+msgid "OpenZFS is not installed"
+msgstr "OpenZFS n'est pas installé"
+
+#: crates/zfs-toolbox/src/overview.rs:98
+msgid ""
+"Install the OpenZFS tools (the zfsutils-linux package on Debian and Ubuntu, "
+"the zfs package on Red Hat and derivatives), then refresh."
+msgstr ""
+"Installez les outils OpenZFS (le paquet zfsutils-linux sur Debian et Ubuntu,"
+" le paquet zfs sur Red Hat et dérivées), puis actualisez."
+
+#: crates/zfs-toolbox/src/overview.rs:104
+msgid "Could not read the OpenZFS status"
+msgstr "Impossible de lire l'état d'OpenZFS"
+
+#: crates/zfs-toolbox/src/overview.rs:122
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: crates/zfs-toolbox/src/overview.rs:130
+msgid "Not loaded"
+msgstr "Non chargé"
+
+#: crates/zfs-toolbox/src/overview.rs:133
+msgid "Tools version"
+msgstr "Version des outils"
+
+#: crates/zfs-toolbox/src/overview.rs:134
+msgid "Kernel module"
+msgstr "Module noyau"
+
+#: crates/zfs-toolbox/src/overview.rs:139 crates/zfs-toolbox/src/window.rs:22
+msgid "Pools"
+msgstr "Pools"
+
+#: crates/zfs-toolbox/src/overview.rs:143
+msgid "Could not list the pools"
+msgstr "Impossible de lister les pools"
+
+#: crates/zfs-toolbox/src/overview.rs:146
+msgid "No imported pool"
+msgstr "Aucun pool importé"
+
+#: crates/zfs-toolbox/src/overview.rs:151
+msgid "{} imported pool"
+msgid_plural "{} imported pools"
+msgstr[0] "{} pool importé"
+msgstr[1] "{} pools importés"
+
+#: crates/zfs-toolbox/src/overview.rs:158
+msgid "{} used of {}"
+msgstr "{} utilisés sur {}"
+
+#: crates/zfs-toolbox/src/overview.rs:177
+msgid "Administrator access"
+msgstr "Accès administrateur"
+
+#: crates/zfs-toolbox/src/overview.rs:179
+msgid "Operations that change your pools ask for an administrator password."
+msgstr ""
+"Les opérations qui modifient vos pools demandent un mot de passe "
+"administrateur."
+
+#: crates/zfs-toolbox/src/overview.rs:183
+msgid "Test"
+msgstr "Tester"
+
+#: crates/zfs-toolbox/src/overview.rs:187
+msgid "Check administrator access"
+msgstr "Vérifier l'accès administrateur"
+
+#: crates/zfs-toolbox/src/overview.rs:209
+msgid "Administrator access works."
+msgstr "L'accès administrateur fonctionne."
+
+#: crates/zfs-toolbox/src/overview.rs:211
+msgid "The administration helper crashed."
+msgstr "Le service d'administration s'est arrêté brutalement."
+
+#: crates/zfs-toolbox/src/window.rs:24
+msgid "Create, import, export and inspect storage pools."
+msgstr "Créer, importer, exporter et inspecter les pools de stockage."
+
+#: crates/zfs-toolbox/src/window.rs:28
+msgid "Datasets"
+msgstr "Datasets"
+
+#: crates/zfs-toolbox/src/window.rs:31
+msgid ""
+"Manage filesystems and volumes, mount them and load their encryption keys."
+msgstr ""
+"Gérer les systèmes de fichiers et les volumes, les monter et charger leurs "
+"clés de chiffrement."
+
+#: crates/zfs-toolbox/src/window.rs:36
+msgid "Snapshots"
+msgstr "Snapshots"
+
+#: crates/zfs-toolbox/src/window.rs:38
+msgid "Take snapshots and schedule them with a retention policy."
+msgstr ""
+"Prendre des snapshots et les planifier avec une politique de rétention."
+
+#: crates/zfs-toolbox/src/window.rs:42
+msgid "Replication"
+msgstr "Réplication"
+
+#: crates/zfs-toolbox/src/window.rs:44
+msgid "Copy datasets to another pool or another server."
+msgstr "Copier des datasets vers un autre pool ou un autre serveur."
+
+#: crates/zfs-toolbox/src/window.rs:48
+msgid "Health"
+msgstr "Santé"
+
+#: crates/zfs-toolbox/src/window.rs:50
+msgid "Follow the state of your disks and run scrubs."
+msgstr "Suivre l'état de vos disques et lancer des scrubs."
+
+#: crates/zfs-toolbox/src/window.rs:64
+msgid "Overview"
+msgstr "Vue d'ensemble"
+
+#: crates/zfs-toolbox/src/window.rs:73
+msgid "This section will be available in a future version."
+msgstr "Cette section sera disponible dans une prochaine version."
+
+#: crates/zfs-toolbox/src/window.rs:92
+msgid "Refresh"
+msgstr "Actualiser"
+
+#: crates/zfs-toolbox/src/window.rs:95
+msgid "About ZFS Toolbox"
+msgstr "À propos de ZFS Toolbox"
+
+#: crates/zfs-toolbox/src/window.rs:96
+msgid "Quit"
+msgstr "Quitter"
+
+#: crates/zfs-toolbox/src/window.rs:100
+msgid "Main menu"
+msgstr "Menu principal"
+
+#. Translators: search terms, separated and terminated by semicolons.
+#: data/io.github.gillesmagneville.ZfsToolbox.desktop.in:7
+msgid ""
+"zfs;zpool;openzfs;pool;dataset;snapshot;backup;replication;storage;disk;"
+msgstr ""
+"zfs;zpool;openzfs;pool;dataset;snapshot;sauvegarde;réplication;stockage;disque;"
+
+#: data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml.in:10
+msgid "ZFS Toolbox is a desktop application to manage OpenZFS on Linux."
+msgstr ""
+"ZFS Toolbox est une application de bureau pour gérer OpenZFS sous Linux."
+
+#: data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml.in:12
+msgid "Create and inspect pools and datasets"
+msgstr "Créer et inspecter les pools et les datasets"
+
+#: data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml.in:13
+msgid "Take snapshots and keep them according to a retention policy"
+msgstr ""
+"Prendre des snapshots et les conserver selon une politique de rétention"
+
+#: data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml.in:14
+msgid "Replicate datasets to another pool or another server"
+msgstr "Répliquer des datasets vers un autre pool ou un autre serveur"
+
+#: data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml.in:15
+msgid "Follow the health of your disks and run scrubs"
+msgstr "Suivre la santé de vos disques et lancer des scrubs"
+
+#: data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml.in:16
+msgid "Mount datasets and load their encryption keys"
+msgstr "Monter des datasets et charger leurs clés de chiffrement"
+
+#: data/io.github.gillesmagneville.ZfsToolbox.policy.in:11
+msgid "Manage ZFS pools and datasets"
+msgstr "Gérer les pools et datasets ZFS"
+
+#: data/io.github.gillesmagneville.ZfsToolbox.policy.in:12
+msgid "Authentication is required to manage ZFS pools and datasets"
+msgstr ""
+"Une authentification est nécessaire pour gérer les pools et datasets ZFS"

@@ -1,0 +1,72 @@
+[package]
+name = "zfs-toolbox"
+description = "Manage OpenZFS pools, datasets, snapshots and replication"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "../../README.md"
+publish = false
+
+[dependencies]
+zfs-core.workspace = true
+serde_json.workspace = true
+# GTK 4.6 and libadwaita 1.1 are the versions of Ubuntu 22.04 and RHEL 9,
+# the oldest supported systems: do not raise these features without
+# updating the list of supported distributions.
+gtk = { package = "gtk4", version = "0.11", features = ["v4_6"] }
+adw = { package = "libadwaita", version = "0.9", features = ["v1_1"] }
+gettext-rs = { version = "0.8", features = ["gettext-system"] }
+
+# Debian and Ubuntu package: `cargo deb -p zfs-toolbox --no-build`, after
+# `cargo build --release --workspace` and `scripts/i18n.sh build`.
+[package.metadata.deb]
+name = "zfs-toolbox"
+maintainer = "Gilles Magneville"
+copyright = "Gilles Magneville"
+license-file = ["../../LICENSE", "0"]
+section = "admin"
+priority = "optional"
+depends = "$auto, zfsutils-linux, pkexec | policykit-1"
+extended-description = """\
+A native GTK4 desktop application to manage OpenZFS on Linux: pools, datasets, \
+snapshots and retention, replication, disk health and scrubs, mounting and \
+encryption keys."""
+assets = [
+    ["target/release/zfs-toolbox", "usr/bin/", "755"],
+    ["target/release/zfs-toolbox-helper", "usr/libexec/zfs-toolbox/", "755"],
+    ["../../target/data/io.github.gillesmagneville.ZfsToolbox.desktop", "usr/share/applications/", "644"],
+    ["../../target/data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml", "usr/share/metainfo/", "644"],
+    ["../../target/data/io.github.gillesmagneville.ZfsToolbox.policy", "usr/share/polkit-1/actions/", "644"],
+    ["../../target/data/io.github.gillesmagneville.ZfsToolbox.svg", "usr/share/icons/hicolor/scalable/apps/", "644"],
+    ["../../target/data/locale/fr/LC_MESSAGES/zfs-toolbox.mo", "usr/share/locale/fr/LC_MESSAGES/", "644"],
+    ["../../target/data/locale/de/LC_MESSAGES/zfs-toolbox.mo", "usr/share/locale/de/LC_MESSAGES/", "644"],
+    ["../../target/data/locale/es/LC_MESSAGES/zfs-toolbox.mo", "usr/share/locale/es/LC_MESSAGES/", "644"],
+    ["../../README.md", "usr/share/doc/zfs-toolbox/", "644"],
+]
+
+# Red Hat, Rocky, Alma and Fedora package: `cargo generate-rpm -p crates/zfs-toolbox`.
+[package.metadata.generate-rpm]
+name = "zfs-toolbox"
+summary = "Manage OpenZFS pools, datasets, snapshots and replication"
+license = "GPL-3.0-or-later"
+assets = [
+    { source = "target/release/zfs-toolbox", dest = "/usr/bin/zfs-toolbox", mode = "755" },
+    { source = "target/release/zfs-toolbox-helper", dest = "/usr/libexec/zfs-toolbox/zfs-toolbox-helper", mode = "755" },
+    { source = "target/data/io.github.gillesmagneville.ZfsToolbox.desktop", dest = "/usr/share/applications/io.github.gillesmagneville.ZfsToolbox.desktop", mode = "644" },
+    { source = "target/data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml", dest = "/usr/share/metainfo/io.github.gillesmagneville.ZfsToolbox.metainfo.xml", mode = "644" },
+    { source = "target/data/io.github.gillesmagneville.ZfsToolbox.policy", dest = "/usr/share/polkit-1/actions/io.github.gillesmagneville.ZfsToolbox.policy", mode = "644" },
+    { source = "target/data/io.github.gillesmagneville.ZfsToolbox.svg", dest = "/usr/share/icons/hicolor/scalable/apps/io.github.gillesmagneville.ZfsToolbox.svg", mode = "644" },
+    { source = "target/data/locale/fr/LC_MESSAGES/zfs-toolbox.mo", dest = "/usr/share/locale/fr/LC_MESSAGES/zfs-toolbox.mo", mode = "644" },
+    { source = "target/data/locale/de/LC_MESSAGES/zfs-toolbox.mo", dest = "/usr/share/locale/de/LC_MESSAGES/zfs-toolbox.mo", mode = "644" },
+    { source = "target/data/locale/es/LC_MESSAGES/zfs-toolbox.mo", dest = "/usr/share/locale/es/LC_MESSAGES/zfs-toolbox.mo", mode = "644" },
+    { source = "LICENSE", dest = "/usr/share/licenses/zfs-toolbox/LICENSE", mode = "644", doc = true },
+]
+
+[package.metadata.generate-rpm.requires]
+gtk4 = ">= 4.6"
+libadwaita = ">= 1.1"
+polkit = "*"
+zfs = "*"

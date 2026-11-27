@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: CC0-1.0 -->
+<component type="desktop-application">
+  <id>io.github.gillesmagneville.ZfsToolbox</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name translatable="no">ZFS Toolbox</name>
+  <summary>Manage OpenZFS pools, datasets, snapshots and replication</summary>
+  <description>
+    <p>ZFS Toolbox is a desktop application to manage OpenZFS on Linux.</p>
+    <ul>
+      <li>Create and inspect pools and datasets</li>
+      <li>Take snapshots and keep them according to a retention policy</li>
+      <li>Replicate datasets to another pool or another server</li>
+      <li>Follow the health of your disks and run scrubs</li>
+      <li>Mount datasets and load their encryption keys</li>
+    </ul>
+  </description>
+  <developer id="io.github.gillesmagneville">
+    <name translatable="no">Gilles Magneville</name>
+  </developer>
+  <launchable type="desktop-id">io.github.gillesmagneville.ZfsToolbox.desktop</launchable>
+  <url type="homepage">https://github.com/gillesmagneville/zfs-toolbox</url>
+  <url type="bugtracker">https://github.com/gillesmagneville/zfs-toolbox/issues</url>
+  <content_rating type="oars-1.1"/>
+  <provides>
+    <binary>zfs-toolbox</binary>
+  </provides>
+  <releases>
+    <release version="0.1.0" date="2026-11-27">
+      <description translatable="no">
+        <p>First development version.</p>
+      </description>
+    </release>
+  </releases>
+</component>

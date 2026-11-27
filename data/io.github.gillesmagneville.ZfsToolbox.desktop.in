@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=ZFS Toolbox
+Comment=Manage OpenZFS pools, datasets, snapshots and replication
+# Translators: search terms, separated and terminated by semicolons.
+Keywords=zfs;zpool;openzfs;pool;dataset;snapshot;backup;replication;storage;disk;
+Exec=zfs-toolbox
+Icon=io.github.gillesmagneville.ZfsToolbox
+Terminal=false
+Categories=GTK;System;Filesystem;
+StartupNotify=true

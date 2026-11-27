@@ -1,0 +1,8 @@
+# Files with translatable strings, relative to the repository root.
+crates/zfs-toolbox/src/helper_client.rs
+crates/zfs-toolbox/src/main.rs
+crates/zfs-toolbox/src/overview.rs
+crates/zfs-toolbox/src/window.rs
+data/io.github.gillesmagneville.ZfsToolbox.desktop.in
+data/io.github.gillesmagneville.ZfsToolbox.metainfo.xml.in
+data/io.github.gillesmagneville.ZfsToolbox.policy.in

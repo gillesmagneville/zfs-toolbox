@@ -1,0 +1,108 @@
+name: Packages
+
+# Builds the .deb, .rpm and AppImage on every push to main and every pull
+# request, and attaches them to a GitHub release when a v* tag is pushed.
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deb:
+    name: .deb (Debian 12+, Ubuntu 22.04+)
+    runs-on: ubuntu-latest
+    # Built on the oldest supported release, so it installs on newer ones.
+    container: ubuntu:22.04
+    steps:
+      - name: Install system dependencies
+        run: |
+          apt-get update
+          DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            build-essential ca-certificates curl git pkg-config dpkg-dev \
+            libgtk-4-dev libadwaita-1-dev gettext
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-deb
+      - name: Build
+        run: |
+          cargo build --release --workspace
+          scripts/i18n.sh build
+          cargo deb -p zfs-toolbox --no-build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deb
+          path: target/debian/*.deb
+
+  rpm:
+    name: .rpm (RHEL 9, Rocky, Alma, Fedora)
+    runs-on: ubuntu-latest
+    container: rockylinux:9
+    steps:
+      - name: Install system dependencies
+        run: |
+          dnf install -y epel-release dnf-plugins-core
+          dnf config-manager --set-enabled crb
+          dnf install -y gcc git pkgconf-pkg-config gtk4-devel libadwaita-devel gettext
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-generate-rpm
+      - name: Build
+        run: |
+          cargo build --release --workspace
+          scripts/i18n.sh build
+          cargo generate-rpm -p crates/zfs-toolbox
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rpm
+          path: target/generate-rpm/*.rpm
+
+  appimage:
+    name: AppImage (portable)
+    runs-on: ubuntu-latest
+    container: ubuntu:22.04
+    steps:
+      - name: Install system dependencies
+        run: |
+          apt-get update
+          DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            build-essential ca-certificates curl git pkg-config file \
+            libgtk-4-dev libadwaita-1-dev gettext librsvg2-common \
+            libgdk-pixbuf2.0-dev desktop-file-utils
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        run: |
+          cargo build --release --workspace
+          scripts/i18n.sh build
+          packaging/appimage/build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appimage
+          path: dist/*.AppImage
+
+  release:
+    name: Publish release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [deb, rpm, appimage]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: packages
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: packages/*
+          generate_release_notes: true

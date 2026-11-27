@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lint, tests and translations
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libgtk-4-dev libadwaita-1-dev gettext \
+            desktop-file-utils appstream libxml2-utils
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: Formatting
+        run: cargo fmt --all -- --check
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: Tests
+        run: cargo test --workspace
+      - name: Every string is translated
+        run: scripts/i18n.sh check
+      - name: Validate desktop, AppStream and polkit files
+        run: |
+          scripts/i18n.sh build
+          desktop-file-validate target/data/*.desktop
+          appstreamcli validate --no-net target/data/*.metainfo.xml
+          xmllint --noout target/data/*.policy
