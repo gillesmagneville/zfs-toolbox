@@ -1,0 +1,5 @@
+/target
+*.mo
+/dist
+/AppDir
+*.AppImage
