@@ -20,7 +20,8 @@ system language and falls back to English for any other language.
 | Any recent distribution | glibc 2.35 | AppImage |
 
 OpenZFS itself must be installed (`zfsutils-linux` on Debian and Ubuntu,
-`zfs` on Red Hat). GTK 4.6 and libadwaita 1.1 are the minimum versions.
+`zfs` on Red Hat). The minimum versions are GTK 4.4, libadwaita 1.1 and
+Pango 1.46.
 
 The AppImage contains the application only. Administrator actions need the
 helper and its polkit rule, which are installed by the `.deb` and `.rpm`

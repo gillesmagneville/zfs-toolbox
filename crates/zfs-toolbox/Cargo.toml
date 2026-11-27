@@ -13,10 +13,11 @@ publish = false
 [dependencies]
 zfs-core.workspace = true
 serde_json.workspace = true
-# GTK 4.6 and libadwaita 1.1 are the versions of Ubuntu 22.04 and RHEL 9,
-# the oldest supported systems: do not raise these features without
-# updating the list of supported distributions.
-gtk = { package = "gtk4", version = "0.11", features = ["v4_6"] }
+# Oldest supported systems: Ubuntu 22.04 (GTK 4.6, libadwaita 1.1, Pango
+# 1.50) and RHEL 9 (Pango 1.48). The bindings' `v4_6` feature would require
+# Pango 1.50, so the API is limited to GTK 4.4 and libadwaita 1.1. Do not
+# raise these features without updating the list of supported distributions.
+gtk = { package = "gtk4", version = "0.11", features = ["v4_4"] }
 adw = { package = "libadwaita", version = "0.9", features = ["v1_1"] }
 gettext-rs = { version = "0.8", features = ["gettext-system"] }
 
