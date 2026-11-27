@@ -45,23 +45,22 @@ jobs:
     name: .rpm (RHEL 9, Rocky, Alma, Fedora)
     runs-on: ubuntu-latest
     container: rockylinux:9
-    # The image defines no PATH, so once a step adds to GITHUB_PATH (as the
-    # Rust toolchain action does) the later steps would lose /usr/bin.
-    env:
-      PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    # The rockylinux:9 image defines no PATH: anything added through
+    # GITHUB_PATH (as the Rust setup actions do) leaves later steps unable
+    # to find bash. Rust is therefore installed and used within one step.
     steps:
       - name: Install system dependencies
         run: |
-          dnf install -y tar gzip xz findutils epel-release dnf-plugins-core
+          dnf install -y epel-release dnf-plugins-core
           dnf config-manager --set-enabled crb
           dnf install -y gcc git pkgconf-pkg-config gtk4-devel libadwaita-devel gettext
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: taiki-e/install-action@v2
-        with:
-          tool: cargo-generate-rpm
       - name: Build
         run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+            | RUSTUP_INIT_SKIP_PATH_CHECK=yes sh -s -- -y --profile minimal
+          export PATH="$HOME/.cargo/bin:$PATH"
+          cargo install --locked cargo-generate-rpm
           cargo build --release --workspace
           scripts/i18n.sh build
           cargo generate-rpm -p crates/zfs-toolbox
